@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 const Header = () => (
   <header>
     <NavLink to="/" activeClassName="is-active">
-      <h1>I spent it</h1>
+      <h1>Trackaroo</h1>
     </NavLink>
     <NavLink to="/create" activeClassName="is-active">
       New Expense

@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  entry: './src/playground/redux-trackaroo.js',
+  entry: './src/playground/hoc.jsx',
   output: {
     path: path.join(__dirname, 'public'),
     filename: 'bundle.js',

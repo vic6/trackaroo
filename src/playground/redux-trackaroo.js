@@ -101,13 +101,13 @@ const getVisableExpenses = (expenses, { text, sortBy, startDate, endDate}) => (
     const startDateMatch = typeof startDate !== 'number' || expense.createdAt >= startDate
     const endDateMatch = typeof endDate !== 'number' || expense.createdAt <= endDate
     const textMatch = expense.description.toLowerCase().includes(text.toLowerCase());
+
     return startDateMatch && endDateMatch && textMatch
   }).sort((a, b) => {
-    if (sortBy === 'date') {
-      return a.createdAt < b.createdAt ? 1 : -1
-    } else if (sortBy === 'amount') {
+    if (sortBy === 'amount') {
       return a.amount < b.amount ? 1 : -1
-    };
+    }
+      return a.createdAt < b.createdAt ? 1 : -1
   })
 )
 
@@ -132,7 +132,7 @@ const expenseTwo = store.dispatch(
 );
 
 const expenseThree = store.dispatch(
-  addExpense({ description: 'cake', amount: 200, createdAt: -9000 })
+  addExpense({ description: 'cake', amount: 200, createdAt: 300 })
 );
 
 // store.dispatch(removeExpense({ id: expenseOne.expense.id }));
@@ -142,8 +142,8 @@ const expenseThree = store.dispatch(
 // store.dispatch(setTextFilter());
 // store.dispatch(setTextFilter('cake'))
 //
-store.dispatch(sortByAmount());
-// store.dispatch(sortByDate());
+// store.dispatch(sortByAmount());
+store.dispatch(sortByDate());
 
 // store.dispatch(setStartDate(125));
 // store.dispatch(setStartDate());

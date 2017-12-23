@@ -18,8 +18,18 @@ store.subscribe(() => {
 });
 
 store.dispatch(addExpense({ description: 'Ice cream bill', amount: 50000 }));
-store.dispatch(addExpense({ description: 'Gummy Bear bill', amount: 860000 }));
-store.dispatch(setTextFilter('ice'));
+store.dispatch(addExpense({ description: 'Gummy Bear bill', amount: 860000, createdAt: 20 }));
+store.dispatch(addExpense({ description: 'Sauce Packet', amount: 86000 }));
+store.dispatch(addExpense({ description: 'Trapoholic mix tape', amount: 2244, createdAt: 150 }));
+store.dispatch(addExpense({ description: 'Lucky Charms', amount: 500, createdAt: 300 }));
+
+
+
+//store.dispatch(setTextFilter('bear'));
+
+// setTimeout(() => {
+//   store.dispatch(setTextFilter('ice'));
+// }, 3000)
 
 const jsx = (
   <Provider store={store}>

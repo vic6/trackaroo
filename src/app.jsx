@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 import AppRouter from './routes/AppRouter';
 import configureStore from './store/configureStore';
+
 import { addExpense } from './actions/expenses';
 import { setTextFilter } from './actions/filters';
 import getVisableExpenses from './selectors/expenses';
@@ -17,8 +19,12 @@ store.subscribe(() => {
 
 store.dispatch(addExpense({ description: 'Ice cream bill', amount: 50000 }));
 store.dispatch(addExpense({ description: 'Gummy Bear bill', amount: 860000 }));
-
 store.dispatch(setTextFilter('ice'));
 
+const jsx = (
+  <Provider store={store}>
+    <AppRouter />
+  </Provider>
+)
 
-ReactDOM.render(<AppRouter />, document.getElementById('app'));
+ReactDOM.render(jsx, document.getElementById('app'));

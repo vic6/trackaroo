@@ -5,7 +5,7 @@ import AppRouter from './routes/AppRouter';
 import configureStore from './store/configureStore';
 
 import { addExpense } from './actions/expenses';
-import { setTextFilter } from './actions/filters';
+// import { setTextFilter } from './actions/filters';
 import getVisableExpenses from './selectors/expenses';
 
 
@@ -25,7 +25,7 @@ store.dispatch(addExpense({ description: 'Lucky Charms', amount: 500, createdAt:
 
 
 
-//store.dispatch(setTextFilter('bear'));
+// store.dispatch(setTextFilter('bear'));
 
 // setTimeout(() => {
 //   store.dispatch(setTextFilter('ice'));

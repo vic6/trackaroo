@@ -34,7 +34,7 @@ class ExpenseForm extends Component {
           <input
             type="text"
             placeholder="Description"
-            autoFocus
+            // autoFocus
             value={this.state.description}
             onChange={this.handleDescriptionChange}
           />

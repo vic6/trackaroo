@@ -15,6 +15,14 @@ class ExpenseForm extends Component {
     calendarFocused: false
   };
 
+  onDateChange = createdAt => {
+    this.setState(() => ({ createdAt }));
+  };
+
+  onFocusChange = ({ focused }) => {
+    this.setState(() => ({ calendarFocused: focused }));
+  };
+
   handleDescriptionChange = event => {
     this.setState({
       description: event.target.value
@@ -22,9 +30,7 @@ class ExpenseForm extends Component {
   };
 
   handleNoteChange = event => {
-    this.setState({
-      note: event.target.value
-    });
+    this.setState(() => ({ note: event.target.value }));
   };
 
   handleAmountChange = event => {
@@ -34,15 +40,6 @@ class ExpenseForm extends Component {
       this.setState(() => ({ amount }));
     }
   };
-
-  onDateChange = (createdAt) => {
-    this.setState(() => ({createdAt}))
-  }
-
-  onFocusChange = ({focused}) => {
-    this.setState(() => ({calendarFocused: focused}));
-  };
-
 
   render() {
     return (
@@ -66,6 +63,8 @@ class ExpenseForm extends Component {
             focused={this.state.calendarFocused}
             onDateChange={this.onDateChange}
             onFocusChange={this.onFocusChange}
+            numberOfMonths={1}
+            isOutsideRange={() => false}
           />
           <textarea
             onChange={this.handleNoteChange}

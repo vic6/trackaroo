@@ -1,10 +1,17 @@
 import React, { Component } from 'react';
+import moment from 'moment';
+import { SingleDatePicker } from 'react-dates';
+import 'react-dates/lib/css/_datepicker.css';
+
+const date = moment();
+console.log(date.format('MMM Do, YYYY'));
 
 class ExpenseForm extends Component {
   state = {
     description: '',
     note: '',
-    amount: ''
+    amount: '',
+    createAt: moment()
   };
 
   handleDescriptionChange = event => {
@@ -27,6 +34,12 @@ class ExpenseForm extends Component {
     }
   };
 
+  onDateChange = (createdAt) => {
+    this.setState({
+      createdAt
+    })
+  }
+
   render() {
     return (
       <div>
@@ -43,6 +56,12 @@ class ExpenseForm extends Component {
             value={this.state.amount}
             placeholder="Amount"
             onChange={this.handleAmountChange}
+          />
+          <SingleDatePicker
+            date={this.state.date}
+            onDateChange={this.onDateChange}
+            focused
+            onFocusChage
           />
           <textarea
             onChange={this.handleNoteChange}

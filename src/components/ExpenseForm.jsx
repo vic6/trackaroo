@@ -11,7 +11,8 @@ class ExpenseForm extends Component {
     description: '',
     note: '',
     amount: '',
-    createAt: moment()
+    createdAt: moment(),
+    calendarFocused: false
   };
 
   handleDescriptionChange = event => {
@@ -35,10 +36,13 @@ class ExpenseForm extends Component {
   };
 
   onDateChange = (createdAt) => {
-    this.setState({
-      createdAt
-    })
+    this.setState(() => ({createdAt}))
   }
+
+  onFocusChange = ({focused}) => {
+    this.setState(() => ({calendarFocused: focused}));
+  };
+
 
   render() {
     return (
@@ -58,10 +62,10 @@ class ExpenseForm extends Component {
             onChange={this.handleAmountChange}
           />
           <SingleDatePicker
-            date={this.state.date}
+            date={this.state.createdAt}
+            focused={this.state.calendarFocused}
             onDateChange={this.onDateChange}
-            focused
-            onFocusChage
+            onFocusChange={this.onFocusChange}
           />
           <textarea
             onChange={this.handleNoteChange}
